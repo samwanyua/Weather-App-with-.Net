@@ -182,8 +182,10 @@ Prompt 5: README Generation
 | Problem | Fix |
 |--------|-----|
 | `401 Unauthorized` | Ensure your API key is valid and added to the request URL |
-| `NullReferenceException` | Check if API response is missing expected fields |
-| JSON not parsing | Update model to match exact JSON structure (use `[JsonPropertyName]`) |
+| `NullReferenceException` | Check if API response is missing expected fields or if you're accessing properties like `Weather[0]` without null checks |
+| `JSON not parsing` | Update your model to match the exact JSON structure from the API (use `[JsonPropertyName]` or `JsonProperty`) |
+| `500 Internal Server Error` | This usually means your Razor view is trying to access properties that are null or incorrectly mapped in your model. Double-check your model bindings and JSON response structure. Use `@Model?.Property` or add null guards. |
+
 
 ---
 
