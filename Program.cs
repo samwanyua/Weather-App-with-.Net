@@ -1,8 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient(); // 👈 Required for HttpClient injection
-
+builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -13,7 +10,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(

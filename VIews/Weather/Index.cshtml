@@ -1,27 +1,19 @@
-@model WeatherApp.Models.WeatherResponse
+@model WeatherDashboard.Models.WeatherResponse
+
 @{
     ViewData["Title"] = "Weather Dashboard";
 }
 
-<h2>Check the Weather</h2>
-
-<form method="post">
-    <input type="text" name="city" placeholder="Enter city name" />
-    <button type="submit">Get Weather</button>
-</form>
-
-@if (ViewBag.Error != null)
-{
-    <p style="color:red">@ViewBag.Error</p>
-}
-
-@if (Model != null)
-{
-    <div>
-        <h3>@Model.CityName</h3>
-        <p><strong>Temperature:</strong> @Model.Main.Temp &deg;C</p>
-        <p><strong>Humidity:</strong> @Model.Main.Humidity%</p>
-        <p><strong>Condition:</strong> @Model.Weather[0].Description</p>
-        <img src="https://openweathermap.org/img/wn/@Model.Weather[0].Icon@2x.png" alt="weather icon" />
+<div class="container mt-5">
+    <h1 class="mb-4">Weather Overview for @Model.Timezone</h1>
+    <div class="card">
+        <div class="card-body">
+            <h3>@Model.Current.Weather[0].Main - @Model.Current.Weather[0].Description</h3>
+            <p>🌡️ Temp: @Model.Current.Temp°C (Feels like @Model.Current.Feels_Like°C)</p>
+            <p>💧 Humidity: @Model.Current.Humidity%</p>
+            <p>🌬️ Wind: @Model.Current.Wind_Speed m/s</p>
+            <p>☁️ Cloudiness: @Model.Current.Clouds%</p>
+            <p>📍 Lat: @Model.Lat, Lon: @Model.Lon</p>
+        </div>
     </div>
-}
+</div>

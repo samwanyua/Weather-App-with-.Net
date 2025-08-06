@@ -1,59 +1,35 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System.Net.Http;
-using System.Text.Json;
-using WeatherApp.Models;
+using System.Threading.Tasks;
+using WeatherDashboard.Models;
 
-namespace WeatherApp.Controllers
+namespace WeatherDashboard.Controllers
 {
     public class WeatherController : Controller
     {
-        private readonly IHttpClientFactory _clientFactory;
         private readonly IConfiguration _configuration;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public WeatherController(IHttpClientFactory clientFactory, IConfiguration configuration)
+        public WeatherController(IConfiguration configuration, IHttpClientFactory httpClientFactory)
         {
-            _clientFactory = clientFactory;
             _configuration = configuration;
+            _httpClientFactory = httpClientFactory;
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            var apiKey = _configuration["OpenWeather:ApiKey"];
+            var lat = "-1.286389"; // Nairobi
+            var lon = "36.817223";
+            var url = $"https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,alerts&units=metric&appid={apiKey}";
 
-        [HttpPost]
-        public async Task<IActionResult> Index(string city)
-        {
-            if (string.IsNullOrEmpty(city))
-            {
-                ViewBag.Error = "Please enter a city name.";
-                return View();
-            }
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetStringAsync(url);
+            var weather = JsonConvert.DeserializeObject<WeatherResponse>(response);
 
-            string apiKey = _configuration["OpenWeatherMap:ApiKey"];
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric";
-
-            var client = _clientFactory.CreateClient();
-
-            try
-            {
-                var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-
-                var json = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<WeatherResponse>(json, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-
-                return View(result);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = "Could not fetch weather data. Please try again.";
-                return View();
-            }
+            return View(weather);
         }
     }
 }
