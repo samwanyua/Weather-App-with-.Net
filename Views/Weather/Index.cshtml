@@ -5,15 +5,15 @@
 }
 
 <div class="container mt-5">
-    <h1 class="mb-4">Weather Overview for @Model.Timezone</h1>
+    <h1 class="mb-4">Weather Overview for @Model.Name</h1>
     <div class="card shadow-sm">
         <div class="card-body">
-            <h3>@Model.Current.Weather[0].Main - @Model.Current.Weather[0].Description</h3>
-            <p>🌡️ Temperature: @Model.Current.Temp°C (Feels like @Model.Current.Feels_Like°C)</p>
-            <p>💧 Humidity: @Model.Current.Humidity%</p>
-            <p>🌬️ Wind Speed: @Model.Current.Wind_Speed m/s</p>
-            <p>☁️ Cloudiness: @Model.Current.Clouds%</p>
-            <p>📍 Location: Latitude @Model.Lat, Longitude @Model.Lon</p>
+            <h3>@Model.Weather[0].Main - @Model.Weather[0].Description</h3>
+            <p>🌡️ Temperature: @Model.Main.Temp°C (Feels like @Model.Main.FeelsLike°C)</p>
+            <p>💧 Humidity: @Model.Main.Humidity%</p>
+            <p>🌬️ Wind Speed: @Model.Wind.Speed m/s</p>
+            <p>☁️ Cloudiness: @Model.Clouds.All%</p>
+            <p>📍 Location: Latitude @Model.Coord.Lat, Longitude @Model.Coord.Lon</p>
         </div>
     </div>
 </div>

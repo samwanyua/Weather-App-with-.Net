@@ -1,46 +1,58 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace WeatherDashboard.Models
 {
     public class WeatherResponse
     {
-        public double Lat { get; set; }
+        [JsonProperty("coord")]
+        public Coord Coord { get; set; }
+
+        [JsonProperty("weather")]
+        public List<Weather> Weather { get; set; }
+
+        [JsonProperty("main")]
+        public Main Main { get; set; }
+
+        [JsonProperty("wind")]
+        public Wind Wind { get; set; }
+
+        [JsonProperty("clouds")]
+        public Clouds Clouds { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+    }
+
+    public class Coord
+    {
         public double Lon { get; set; }
-        public string Timezone { get; set; }
-        public int Timezone_Offset { get; set; }
-        public CurrentWeather Current { get; set; }
-        public List<DailyWeather> Daily { get; set; }
+        public double Lat { get; set; }
     }
 
-    public class CurrentWeather
-    {
-        public double Temp { get; set; }
-        public double Feels_Like { get; set; }
-        public int Humidity { get; set; }
-
-        public double Wind_Speed { get; set; }  
-        public int Clouds { get; set; }        
-
-        public List<WeatherInfo> Weather { get; set; }
-    }
-
-    public class DailyWeather
-    {
-        public long Dt { get; set; }
-        public TempInfo Temp { get; set; }
-        public List<WeatherInfo> Weather { get; set; }
-    }
-
-    public class TempInfo
-    {
-        public double Min { get; set; }
-        public double Max { get; set; }
-    }
-
-    public class WeatherInfo
+    public class Weather
     {
         public string Main { get; set; }
         public string Description { get; set; }
-        public string Icon { get; set; }
+    }
+
+    public class Main
+    {
+        public double Temp { get; set; }
+
+        [JsonProperty("feels_like")]
+        public double FeelsLike { get; set; }
+
+        public int Humidity { get; set; }
+    }
+
+    public class Wind
+    {
+        public double Speed { get; set; }
+    }
+
+    public class Clouds
+    {
+        public int All { get; set; }
     }
 }
