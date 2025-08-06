@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "Cp7lZrro9tFUSX7ImsxecLC+R4jXevqoGEqzDfe3ffY=",
+  "Source": "WeatherApp",
+  "BasePath": "_content/WeatherApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WeatherApp/wwwroot",
+      "Source": "WeatherApp",
+      "ContentRoot": "/home/wanyua/Dev/C#/Weather-App-with-.Net/wwwroot/",
+      "BasePath": "_content/WeatherApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
