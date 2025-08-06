@@ -104,9 +104,46 @@ We used the **One Call API** from [OpenWeather](https://openweathermap.org/api/o
 # Clone the project
 git clone https://github.com/samwanyua/Weather-App-with-.Net.git
 cd Weather-App-with-.Net
+```
+
+### Run the project
+
+### Clean previous builds
+```
+dotnet clean WeatherApp.csproj
+```
+
+# Build the project
+```
+dotnet build WeatherApp.csproj
+```
 
 # Run the project
-dotnet run
+```
+dotnet run --project WeatherApp.csproj
+```
+
+##  Environment & Security
+
+Ensure that your API keys and sensitive config files like `appsettings.json` are not committed to version control:
+
+
+
+### Structure of appsettings.json 
+Have **appsettings.json** looking like below:
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "OpenWeatherMap": {
+    "ApiKey": "your_api_key" // Replace with your actual key (never commit this)
+  }
+}
 ```
 
 ---
@@ -114,24 +151,29 @@ dotnet run
 ##  AI Prompt Journal
 
 Prompt 1: Initial Setup
-
+```
 "Generate step-by-step commands to scaffold a new ASP.NET Core MVC project using the .NET CLI on Ubuntu, and explain what each folder means in the project structure."
+```
 
 Prompt 2: API Integration
 
+```
 "Write a C# method in a .NET MVC controller that uses HttpClient to fetch current weather data from OpenWeatherMap API based on a city name. Include proper error handling and logging."
+```
 
 Prompt 3: Model Creation
-
+```
 "Create a C# class model that matches the OpenWeatherMap JSON structure for main weather data (temperature, humidity, description, icon)."
-
+```
 Prompt 4: View Layer
-
+```
 "Generate a Razor view in ASP.NET MVC that accepts a city name as input, submits the request to a controller action, and displays the temperature, humidity, description, and weather icon."
+```
 
 Prompt 5: README Generation
-
+```
 "Create a detailed README.md for a .NET MVC weather app using OpenWeather API. Include tech stack, setup, how it works, and how to contribute."
+```
 
 ---
 
