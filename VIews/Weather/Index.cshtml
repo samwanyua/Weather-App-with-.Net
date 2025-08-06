@@ -1,0 +1,27 @@
+@model WeatherApp.Models.WeatherResponse
+@{
+    ViewData["Title"] = "Weather Dashboard";
+}
+
+<h2>Check the Weather</h2>
+
+<form method="post">
+    <input type="text" name="city" placeholder="Enter city name" />
+    <button type="submit">Get Weather</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+@if (Model != null)
+{
+    <div>
+        <h3>@Model.CityName</h3>
+        <p><strong>Temperature:</strong> @Model.Main.Temp &deg;C</p>
+        <p><strong>Humidity:</strong> @Model.Main.Humidity%</p>
+        <p><strong>Condition:</strong> @Model.Weather[0].Description</p>
+        <img src="https://openweathermap.org/img/wn/@Model.Weather[0].Icon@2x.png" alt="weather icon" />
+    </div>
+}
