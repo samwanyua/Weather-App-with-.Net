@@ -1,10 +1,10 @@
-#  Weather Now – Beginner’s Weather Dashboard in ASP.NET
+#  Weather App with ASP.NET
 
 This is a simple beginner-friendly weather dashboard web application built using **ASP.NET Core MVC** and the **OpenWeatherMap API**. It allows users to input a city name and view real-time weather data such as temperature, humidity, and weather conditions.
 
 ##  Project Objective
 
-As part of the Moringa AI Capstone Project, this app demonstrates how to:
+This app demonstrates how to:
 - Scaffold and build a basic ASP.NET Core MVC project.
 - Consume a third-party API (OpenWeatherMap) using `HttpClient`.
 - Deserialize complex JSON data into strongly-typed C# models.
