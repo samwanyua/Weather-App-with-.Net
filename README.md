@@ -108,17 +108,17 @@ cd Weather-App-with-.Net
 
 ### Run the project
 
-### Clean previous builds
+#### Clean previous builds
 ```
 dotnet clean WeatherApp.csproj
 ```
 
-# Build the project
+#### Build the project
 ```
 dotnet build WeatherApp.csproj
 ```
 
-# Run the project
+#### Run the project
 ```
 dotnet run --project WeatherApp.csproj
 ```
