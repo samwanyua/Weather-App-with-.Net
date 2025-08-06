@@ -19,11 +19,11 @@ namespace WeatherDashboard.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string city = "Nairobi")
         {
             var apiKey = _configuration["OpenWeatherMap:ApiKey"];
-            var lat = "-1.286389"; // Nairobi
-            var lon = "36.817223";
+            // var lat = "-1.286389"; // Nairobi
+            // var lon = "36.817223";
 
             Console.WriteLine($"Environment: {Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}");
             Console.WriteLine($"Loaded API Key: {apiKey}");
@@ -33,7 +33,8 @@ namespace WeatherDashboard.Controllers
                 return Content("API Key is missing. Please check appsettings.Development.json or user secrets.");
             }
 
-            var url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=metric&appid={apiKey}";
+            var url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={apiKey}";
+
 
             try
             {
