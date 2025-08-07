@@ -74,14 +74,6 @@ We used the **One Call API** from [OpenWeather](https://openweathermap.org/api/o
 
 ---
 
-##  Minimal Working Example
-
-- User inputs city name (e.g., "Nairobi")
-- System sends a request to OpenWeather API
-- Parses response and renders:
-  
-
----
 
 ##  System Requirements
 
