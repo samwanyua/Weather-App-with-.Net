@@ -9,7 +9,7 @@ This app demonstrates how to:
 - Consume a third-party API (OpenWeatherMap) using `HttpClient`.
 - Deserialize complex JSON data into strongly-typed C# models.
 - Use Razor views to display dynamic weather data.
-- Document and iterate using AI prompts.
+- Document and iterate using AI prompts
 
 ---
 
