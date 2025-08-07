@@ -79,10 +79,7 @@ We used the **One Call API** from [OpenWeather](https://openweathermap.org/api/o
 - User inputs city name (e.g., "Nairobi")
 - System sends a request to OpenWeather API
 - Parses response and renders:
-  - Temperature (`temp`)
-  - Humidity (`humidity`)
-  - Weather description (`description`)
-  - Icon (e.g., ☀️ for clear sky)
+  
 
 ---
 
