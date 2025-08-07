@@ -27,7 +27,7 @@ Weather-App-with-ASP.Net/
 ├── wwwroot/                        # Static files (CSS, JS, images)
 ├── Program.cs                      # Main entry point for app
 ├── appsettings.json                # Configuration settings
-└── README.md                       # Project documentation
+└── README.md                       
 ```
 
 ---
