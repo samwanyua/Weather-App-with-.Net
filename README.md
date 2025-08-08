@@ -129,7 +129,7 @@ Have **appsettings.json** looking like below:
   },
   "AllowedHosts": "*",
   "OpenWeatherMap": {
-    "ApiKey": "your_api_key" // Replace with your actual key (never commit this)
+    "ApiKey": "your_api_key" // Replace with your actual key 
   }
 }
 ```
