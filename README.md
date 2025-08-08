@@ -82,7 +82,7 @@ We used the **One Call API** from [OpenWeather](https://openweathermap.org/api/o
 | SDK              | .NET SDK 8.0+                  |
 | Editor           | Visual Studio Code             |
 | Extensions       | C# for VS Code                 |
-| API Key          | OpenWeatherMap (Free)          |
+| API Key          | OpenWeatherMap                 |
 
 ---
 
