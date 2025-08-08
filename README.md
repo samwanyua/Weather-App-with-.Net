@@ -74,7 +74,6 @@ We used the **One Call API** from [OpenWeather](https://openweathermap.org/api/o
 
 ---
 
-
 ##  System Requirements
 
 | Requirement      | Description                    |
